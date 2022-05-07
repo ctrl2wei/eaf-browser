@@ -81,6 +81,7 @@
 
 ;;; Require
 
+(require 'eaf)
 
 ;;; Code:
 

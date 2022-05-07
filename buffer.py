@@ -303,8 +303,8 @@ class AppBuffer(BrowserBuffer):
                 self._import_history(browser_name=callback_tag.split("_")[1])
             elif callback_tag == "delete_all_cookies":
                 self._delete_all_cookies()
-            elif callback_tag == "delete_cookie":
-                self._delete_cookie()
+            elif callback_tag == "delete_http_cache":
+                self._delete_http_cache()
 
     def try_start_aria2_daemon(self):
         ''' Try to start aria2 daemon.'''
@@ -618,15 +618,15 @@ class AppBuffer(BrowserBuffer):
         ''' Delete all cookies.'''
         self.send_input_message("Are you sure you want to delete all browsing cookies?", "delete_all_cookies", "yes-or-no")
 
-    def _delete_cookie(self):
-        ''' Delete cookie of current site.'''
-        self.buffer_widget.delete_cookie()
-        message_to_emacs("Delete cookie of {}.".format(self.buffer_widget.url().host()))
+    def _delete_http_cache(self):
+        ''' Delete browsing cache.'''
+        self.buffer_widget.delete_http_cache()
+        message_to_emacs("Deleted browsing caches")
 
     @interactive
-    def delete_cookie(self):
-        ''' Delete cookie of current site.'''
-        self.send_input_message("Are you sure you want to delete cookie of current site?", "delete_cookie", "yes-or-no")
+    def delete_http_cache(self):
+        ''' Delete browsing cache'''
+        self.send_input_message("Are you sure you want to clear all browsing caches?", "delete_http_cache", "yes-or-no")
 
     def load_readability_js(self):
         if self.readability_js is None:

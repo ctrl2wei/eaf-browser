@@ -66,7 +66,7 @@ Please press `Alt + z` to execute command `switch_to_input_mode` if some site ca
 | `M-w` | copy_text |
 | `M-f` | history_forward |
 | `M-b` | history_backward |
-| `M-q` | delete_cookie |
+| `M-q` | delete_http_cache |
 | `M-Q` | delete_all_cookies |
 | `C-t` | toggle_password_autofill |
 | `C-d` | save_page_password |
